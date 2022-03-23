@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { SignUpPage } from './pages/SignUpPage';
+import { CreateProductPage } from './pages/CreateProductPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/SignUp" element={<SignUpPage />}/>
         <Route path="/HomePage" element={<HomePage />} />
+        <Route path="/CreateProduct" element={<CreateProductPage />} />
         <Route element={<NotFoundPage />}/>
       </Routes>
     </BrowserRouter>   

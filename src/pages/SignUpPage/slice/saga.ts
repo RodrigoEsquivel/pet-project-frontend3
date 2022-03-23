@@ -23,7 +23,7 @@ export function* signUpWatcherSaga() {
   yield takeEvery(actions.fetchingData.type, signUpWorkerSaga);
 }
 
-const requestURL = `${constants.URL}/create`;
+const requestURL = `${constants.URL}/user/create`;
 
 function* signUpWorkerSaga():any {
   try {

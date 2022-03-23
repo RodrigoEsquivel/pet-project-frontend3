@@ -7,27 +7,27 @@ const selectSlice = (state: RootState) => state.login || initialState;
 
 export const selectEmail = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.email,
+  LoginState => LoginState.email,
 );
 
 export const selectPassword = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.password,
+  LoginState => LoginState.password,
 );
 
 export const selectIsLogged = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.isLogged,
+  LoginState => LoginState.isLogged,
 );
 
 export const selectError = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.error,
+  LoginState => LoginState.error,
 );
 
 export const selectIsFetching = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.isFetching,
+  LoginState => LoginState.isFetching,
 );
 
 export const selectLogin = createSelector([selectSlice], state => state);

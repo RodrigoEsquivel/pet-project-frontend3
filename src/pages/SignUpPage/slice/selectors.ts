@@ -9,50 +9,50 @@ export const selectSignUp = createSelector([selectSlice], state => state);
 
 export const selectName = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.name,
+  SignUpState => SignUpState.name,
 );
 
 export const selectLastName = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.lastName,
+  SignUpState => SignUpState.lastName,
 );
 
 export const selectPassword = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.password,
+  SignUpState => SignUpState.password,
 );
 
 export const selectPasswordConfirmation = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.passwordConfirmation,
+  SignUpState => SignUpState.passwordConfirmation,
 );
 
 export const selectEmail = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.email,
+  SignUpState => SignUpState.email,
 );
 
 export const selectRole = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.role,
+  SignUpState => SignUpState.role,
 );
 
 export const selectError = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.error,
+  SignUpState => SignUpState.error,
 );
 
 export const selectIsFetching = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.isFetching,
+  SignUpState => SignUpState.isFetching,
 );
 
 export const selectSignUpSuccess = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.signUpSuccess,
+  SignUpState => SignUpState.signUpSuccess,
 );
 
 export const selectAlreadyRegistered = createSelector(
   [selectSlice],
-  LoginExampleState => LoginExampleState.alreadyRegistered,
+  SignUpState => SignUpState.alreadyRegistered,
 );

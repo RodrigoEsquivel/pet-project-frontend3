@@ -11,7 +11,7 @@ export function* loginWatcherSaga() {
   yield takeEvery(actions.fetchingData.type, loginWorkerSaga);
 }
 
-const requestURL = `${constants.URL}/login`;
+const requestURL = `${constants.URL}/user/login`;
 
 function* loginWorkerSaga(): any {
   try {
@@ -32,9 +32,11 @@ function* loginWorkerSaga(): any {
     };
 
     const payload = yield call(request, requestURL, requestOptions);
-    const { token } = payload['token'];
+    const  token  = payload['token'];
+    const  user_id  = payload['userData']['id'];
     const cookies = new Cookies();
     cookies.set('token', token, { path: '/' });
+    cookies.set('user_id', user_id, {path: '/'});
     yield put(actions.authSuccess());
   } catch (e) {
     yield put(actions.authError());
