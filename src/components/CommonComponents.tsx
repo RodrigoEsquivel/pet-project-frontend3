@@ -1,20 +1,22 @@
 import { Box, TextInput, Button } from 'grommet';
 import styled from 'styled-components/macro';
+import Cookies from 'universal-cookie'; 
+import { useNavigate } from 'react-router';
 
 export const Wrapper = styled(Box)`
-  /*background: radial-gradient(
-    calc(10px + 430vmin) calc(10px + 300vmin) at 100% -50%,
-    #ffffff 49%,
-    #004a29 50%
-  );*/
-  background-color: white;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   height: 100vh;
 `;
 export const StyledTextInput = styled(TextInput)`
   ::placeholder {
     color: black;
     opacity: 1;
+  }
+`;
+
+export const ImageURITextInput = styled(StyledTextInput)`
+  ::placeholder {
+    font-size: 12px;
   }
 `;
 

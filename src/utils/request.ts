@@ -48,6 +48,7 @@ function checkStatus(response: Response) {
  */
 export async function request(url: string, options?: any) {
   const fetchResponse = await fetch(url, options).catch(error => {
+    console.log(error);
     return error;
   });
   if (fetchResponse) {

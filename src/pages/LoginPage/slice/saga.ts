@@ -32,12 +32,12 @@ function* loginWorkerSaga(): any {
     };
 
     const payload = yield call(request, requestURL, requestOptions);
-    const  token  = payload['token'];
-    const  user_id  = payload['userData']['id'];
+    const token  = payload['token'];
+    const userID  = payload['userData']['id'];
     const cookies = new Cookies();
     cookies.set('token', token, { path: '/' });
-    cookies.set('user_id', user_id, {path: '/'});
-    yield put(actions.authSuccess());
+    cookies.set('user_id', userID, {path: '/'});
+    yield put(actions.authSuccess({token, userID}));
   } catch (e) {
     yield put(actions.authError());
   }

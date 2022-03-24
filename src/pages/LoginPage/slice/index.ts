@@ -5,6 +5,8 @@ import { LoginState } from './types';
 export const initialState: LoginState = {
   email: '',
   password: '',
+  token: '',
+  userID: '',
   isLogged: false,
   error: false,
   isFetching: false,
@@ -20,7 +22,9 @@ const slice = createSlice({
     setPassword(state: LoginState, action: PayloadAction<any>) {
       state.password = action.payload;
     },
-    authSuccess(state: LoginState) {
+    authSuccess(state: LoginState, action: PayloadAction<any>) {
+      state.token = action.payload.token;
+      state.userID = action.payload.userID;
       state.isLogged = true;
       state.isFetching = false;
       state.error = false;

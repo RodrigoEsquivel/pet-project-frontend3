@@ -1,11 +1,8 @@
 import {
-  take,
   call,
   put,
   select,
-  takeLatest,
   takeEvery,
-  delay,
 } from 'redux-saga/effects';
 import { signUpActions as actions } from '.';
 import { constants } from '../../../utils/constants';
@@ -17,7 +14,6 @@ import {
   selectRole,
 } from './selectors';
 import { request } from '../../../utils/request';
-import { url } from 'inspector';
 
 export function* signUpWatcherSaga() {
   yield takeEvery(actions.fetchingData.type, signUpWorkerSaga);

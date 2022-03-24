@@ -24,6 +24,8 @@ import { useLoginSlice } from './slice';
 import logo from '../img/logo.png';
 import { selectError, selectIsLogged } from './slice/selectors';
 import { useNavigate } from 'react-router';
+import { getToken, getUserId} from '../../utils/cookies';
+import { useAuth } from '../../utils/useAuth';
 
 interface Props {}
 
@@ -33,6 +35,7 @@ export function LoginPage(props: Props) {
   const isLogged: boolean = useSelector(selectIsLogged);
   const error: boolean = useSelector(selectError);
   const navigate = useNavigate();
+  const auth = useAuth();
   const onChangeEmail = (evt: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(actions.setEmail(evt.currentTarget.value));
   };
@@ -45,9 +48,12 @@ export function LoginPage(props: Props) {
 
   useEffect(() => {
     if (isLogged) {
-      navigate('/HomePage'); //cambiar cuando se tenga a donde se redirige.
+      const token = getToken();
+      const userID = getUserId();
+      auth?.signIn({token, userID});
+      navigate('/Buyer'); //cambiar cuando se tenga a donde se redirige.
     }
-  }, [isLogged, navigate]);
+  }, [isLogged, navigate, auth]);
   return (
     <ResponsiveContext.Consumer>
       {size => (
@@ -64,7 +70,7 @@ export function LoginPage(props: Props) {
             <>
               <Box justify="center" align="center" width="large" pad="large">
                 <Form>
-                  <Box height="xsmall" width="medium">
+                  <Box height="xsmall" width={size==="medium"? "medium":"small"}>
                     <Image src={logo}></Image>
                   </Box>
                   <Box gap="medium" pad={{ top: 'medium' }}>
@@ -87,17 +93,10 @@ export function LoginPage(props: Props) {
                     </FormField>
                   </Box>
                   <Box pad={'medium'} align="center" justify="start">
-                    <Anchor
-                      href="/password-recovery"
-                      label="Forgot password?"
-                      size={''}
-                    />
                     <Text>
-                      {' '}
-                      Don't have an account?{' '}
-                      <Anchor href="/SignUp" label="Sign Up" size={''} />
+                      Don't have an account?
                     </Text>
-
+                    <Anchor onClick={()=> navigate('/SignUp')} label=" Sign Up" size={''} />
                     <Box height={''} width={''}>
                       <StyledButton
                         onClick={onSubmit}

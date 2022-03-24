@@ -5,4 +5,6 @@ export interface LoginState {
   isLogged: boolean;
   error: boolean;
   isFetching: boolean;
+  userID: string;
+  token: string;
 }

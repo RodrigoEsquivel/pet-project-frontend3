@@ -11,7 +11,6 @@
     Image,
     Heading,
     Header,
-    RadioButtonGroup,
     Text,
     Anchor,
   } from 'grommet';
@@ -20,8 +19,9 @@
     StyledTextInput,
     StyledButton,
     StyledH3,
+    ImageURITextInput
   } from '../../components/CommonComponents';
-  import React, { useEffect } from 'react';
+  import React from 'react';
   import logo from '../img/logo.png';
   import { useDispatch, useSelector } from 'react-redux';
   import { useCreateProductSlice } from './slice';
@@ -30,26 +30,31 @@
     selectError,
     selectBrand,
     selectName,
-    selectIsFetching,
     selectPrice,
     selectProductCreated,
     selectImageURI,
   } from './slice/selectors';
-  import { useNavigate } from 'react-router';
+  import {useAuth} from '../../utils/useAuth';
+  import { useNavigate } from "react-router-dom";
   
   interface Props {}
   
   export function CreateProductPage(props: Props) {
     const dispatch = useDispatch();
     const { actions } = useCreateProductSlice();
+    const auth = useAuth();
     const error = useSelector(selectError);
     const name = useSelector(selectName);
     const description = useSelector(selectDescription);
     const brand = useSelector(selectBrand);
     const imageURI = useSelector(selectImageURI);
+    const navigate = useNavigate();
     const price = useSelector(selectPrice);
     const productCreated = useSelector(selectProductCreated);
-    const navigate = useNavigate();
+    const LogOutOnClick = () => {
+        auth?.signOut();
+      }
+      
     const onSubmit = () => {
       if (
         description &&
@@ -92,17 +97,20 @@
               align="center"
               justify="center"
             >
-              <Heading> Upload a product for sale </Heading>
+              <Heading level={size==="small"?"3":"1"}> Upload a product for sale </Heading>
               <Box
-                direction="row"
-                height="xsmall"
-                width="medium"
-                justify="stretch"
+                direction="row-responsive"
+                height={size==="small"?"xxsmall":"xsmall"}
+                width={size==="small"?"xsmall":"medium"}
+                justify="center"
                 pad={'small'}
               >
                 <Image src={logo}></Image>
               </Box>
+              <StyledButton size="small" href="/login" onClick={LogOutOnClick} color="#5D8BF4" secondary label="Log Out"/>
+              
             </Header>
+            {/*size==="small" && <StyledButton onClick={LogOutOnClick} color="#5D8BF4"  label="Log Out"/>*/}
             <Box
               responsive={true}
               fill="vertical"
@@ -123,7 +131,6 @@
                           onChange={onChangeName}
                           textAlign="center"
                           placeholder="Name"
-                          size={''}
                         ></StyledTextInput>
                       </FormField>
                       <FormField>
@@ -131,19 +138,24 @@
                           onChange={onChangeDescription}
                           textAlign="center"
                           placeholder="Description"
-                          size={''}
                         ></StyledTextInput>
                       </FormField>
                     </Box>
   
                     <Box direction="row" pad="xsmall" gap="none">
                       <FormField>
-                        <StyledTextInput
+                        {size==="small"?
+                        <ImageURITextInput
+                        onChange={onChangeImageURI}
+                        textAlign="center"
+                        placeholder="Link to the image"
+                      ></ImageURITextInput>:
+                      <StyledTextInput
                           onChange={onChangeImageURI}
                           textAlign="center"
                           placeholder="Link to the image"
-                          size={''}
-                        ></StyledTextInput>
+                        ></StyledTextInput>}
+                        
                       </FormField>
                       <FormField>
                         <StyledTextInput
@@ -204,7 +216,7 @@
                       </Box>
                     </Box>
                   </Form>
-                  <Anchor href="/login" label="Back to login"></Anchor>
+                  <Anchor onClick={()=> navigate('/Seller')} label="Back to my products"></Anchor>
                 </Box>
               </>
             </Box>

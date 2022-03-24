@@ -1,11 +1,8 @@
 import {
-    take,
     call,
     put,
     select,
-    takeLatest,
     takeEvery,
-    delay,
   } from 'redux-saga/effects';
   import { createProductActions as actions } from '.';
   import { constants } from '../../../utils/constants';
@@ -17,13 +14,11 @@ import {
     selectPrice
   } from './selectors';
   import { request } from '../../../utils/request';
-  import { url } from 'inspector';
-  import { getToken, getUserId } from '../../../utils/utils';
+  import { getToken, getUserId } from '../../../utils/cookies';
   
   export function* createProductWatcherSaga() {
     yield takeEvery(actions.fetchingData.type, createProductWorkerSaga);
   }
-  //needs to add seller with the id of the logged in user
   const requestURL = `${constants.URL}/product/create`;
   
   function* createProductWorkerSaga():any {

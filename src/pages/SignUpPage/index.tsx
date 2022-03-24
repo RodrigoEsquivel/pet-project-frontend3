@@ -53,6 +53,7 @@ export function SignUpPage(props: Props) {
   const signUpSuccess = useSelector(selectSignUpSuccess);
   const alreadyRegistered = useSelector(selectAlreadyRegistered);
   const emailRegex = new RegExp(
+    // eslint-disable-next-line no-useless-escape
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
   );
   const passwordRegex = new RegExp(
@@ -104,17 +105,17 @@ useEffect(() => {
   return (
     <ResponsiveContext.Consumer>
       {size => (
-        <Wrapper overflow="auto">
+        <Wrapper overflow="auto" >
           <Header
             background={{ color: 'accent-3', opacity: 'medium' }}
             align="center"
             justify="center"
           >
-            <Heading> Create an account </Heading>
+            <Heading level={size==="small"?"3":"1"}> Create an account </Heading>
             <Box
               direction="row"
-              height="xsmall"
-              width="medium"
+              height={size==="small"?"xxsmall":"xsmall"}
+              width={size==="small"?"xsmall":"medium"} //medium medium small  xsmall
               justify="stretch"
               pad={'small'}
             >
@@ -123,16 +124,17 @@ useEffect(() => {
           </Header>
           <Box
             responsive={true}
-            fill="vertical"
+            fill
             align="center"
             pad="xlarge"
             gap="medium"
             justify="center"
+            overflow="hidden"
             background={{ color: 'accent-3', opacity: 'medium' }}
           >
             <>
               <Box justify="center" align="center" width="xlarge" pad="xsmall">
-                <Box align="end" gap="none" margin="medium" pad="none">
+                <Box align="center" gap="none" margin="medium" pad="none">
                   {!passwordRegex.test(password) && (
                     <Text size="xsmall">
                       Password must be of at least 8 characters and contain a
@@ -147,7 +149,6 @@ useEffect(() => {
                         onChange={onChangeName}
                         textAlign="center"
                         placeholder="Name"
-                        size={''}
                       ></StyledTextInput>
                     </FormField>
                     <FormField>
@@ -155,7 +156,6 @@ useEffect(() => {
                         onChange={onChangeLastName}
                         textAlign="center"
                         placeholder="Last Name"
-                        size={''}
                       ></StyledTextInput>
                     </FormField>
                   </Box>
@@ -167,7 +167,6 @@ useEffect(() => {
                         textAlign="center"
                         placeholder="Email"
                         type="email"
-                        size={''}
                       ></StyledTextInput>
                     </FormField>
                     <FormField>
@@ -176,7 +175,6 @@ useEffect(() => {
                         textAlign="center"
                         placeholder="Password"
                         type="password"
-                        size={''}
                       ></StyledTextInput>
                     </FormField>
                   </Box>
@@ -186,7 +184,7 @@ useEffect(() => {
                       textAlign="center"
                       placeholder="Confirm Password"
                       type="password"
-                      size={''}
+                      size={size==="small"?"small":"medium"}
                     ></StyledTextInput>
                   </Box>
                   <Box align="center">
@@ -247,7 +245,7 @@ useEffect(() => {
                     </Box>
                   </Box>
                 </Form>
-                <Anchor href="/login" label="Back to login"></Anchor>
+                <Anchor onClick={()=> navigate('/login')} label="Back to login"></Anchor>
               </Box>
             </>
           </Box>

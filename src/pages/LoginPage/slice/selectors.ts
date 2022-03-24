@@ -5,6 +5,8 @@ import { initialState } from '.';
 
 const selectSlice = (state: RootState) => state.login || initialState;
 
+export const selectLogin = createSelector([selectSlice], state => state);
+
 export const selectEmail = createSelector(
   [selectSlice],
   LoginState => LoginState.email,
@@ -30,4 +32,4 @@ export const selectIsFetching = createSelector(
   LoginState => LoginState.isFetching,
 );
 
-export const selectLogin = createSelector([selectSlice], state => state);
+

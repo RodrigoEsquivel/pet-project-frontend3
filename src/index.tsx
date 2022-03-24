@@ -5,17 +5,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { configureAppStore } from './store/configureStore';
 import { HelmetProvider } from 'react-helmet-async';
+import { Grommet } from 'grommet';
+import { ProviderAuth } from './utils/useAuth';
 
 
 const store= configureAppStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <HelmetProvider>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </HelmetProvider>
+    <Grommet>
+      <HelmetProvider>
+        <React.StrictMode>
+          <ProviderAuth>
+            <App />
+          </ProviderAuth>
+        </React.StrictMode>
+      </HelmetProvider>
+    </Grommet>
   </Provider>,
   document.getElementById('root')
 );
