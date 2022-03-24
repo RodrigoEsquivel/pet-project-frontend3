@@ -50,21 +50,8 @@ const slice = createSlice({
     },
   });
   
-  export const { actions: createProductActions } = slice;
-  export default slice.reducer;
-  export const useCreateProductSlice = () => {
-    return { actions: slice.actions };
-  };
-  
-  /**
-   * Example Usage:
-   *
-   * export function MyComponentNeedingThisSlice() {
-   *  const { actions } = useSignUpSlice();
-   *
-   *  const onButtonClick = (evt) => {
-   *    dispatch(actions.someAction());
-   *   };
-   * }
-   */
-  
+export const { actions: createProductActions } = slice;
+export default slice.reducer;
+export const useCreateProductSlice = () => {
+  return { actions: slice.actions };
+};

@@ -5,8 +5,6 @@ import { LoginState } from './types';
 export const initialState: LoginState = {
   email: '',
   password: '',
-  token: '',
-  userID: '',
   isLogged: false,
   error: false,
   isFetching: false,
@@ -22,9 +20,7 @@ const slice = createSlice({
     setPassword(state: LoginState, action: PayloadAction<any>) {
       state.password = action.payload;
     },
-    authSuccess(state: LoginState, action: PayloadAction<any>) {
-      state.token = action.payload.token;
-      state.userID = action.payload.userID;
+    authSuccess(state: LoginState) {
       state.isLogged = true;
       state.isFetching = false;
       state.error = false;
@@ -47,15 +43,3 @@ export default slice.reducer;
 export const useLoginSlice = () => {
   return { actions: slice.actions };
 };
-
-/**
- * Example Usage:
- *
- * export function MyComponentNeedingThisSlice() {
- *  const { actions } = useLoginSlice();
- *
- *  const onButtonClick = (evt) => {
- *    dispatch(actions.someAction());
- *   };
- * }
- */

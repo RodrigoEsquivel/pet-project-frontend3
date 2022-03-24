@@ -1,8 +1,3 @@
-/**
- *
- * SignUpPage
- *
- */
 import {
   Box,
   ResponsiveContext,
@@ -38,9 +33,7 @@ import {
 } from './slice/selectors';
 import { useNavigate } from 'react-router';
 
-interface Props {}
-
-export function SignUpPage(props: Props) {
+export function SignUpPage() {
   const dispatch = useDispatch();
   const { actions } = useSignUpSlice();
   const error = useSelector(selectError);
@@ -95,7 +88,7 @@ export function SignUpPage(props: Props) {
   const onChangeRole = (evt: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(actions.setRole(evt.currentTarget.value));
   };
-useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       if (signUpSuccess) {
         navigate('/login');
@@ -115,11 +108,11 @@ useEffect(() => {
             <Box
               direction="row"
               height={size==="small"?"xxsmall":"xsmall"}
-              width={size==="small"?"xsmall":"medium"} //medium medium small  xsmall
+              width={size==="small"?"xsmall":"medium"} 
               justify="stretch"
               pad={'small'}
             >
-              <Image src={logo}></Image>
+              <Image src={logo} />
             </Box>
           </Header>
           <Box
@@ -159,7 +152,6 @@ useEffect(() => {
                       ></StyledTextInput>
                     </FormField>
                   </Box>
-
                   <Box direction="row" pad="xsmall" gap="none">
                     <FormField>
                       <StyledTextInput

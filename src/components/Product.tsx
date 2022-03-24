@@ -1,5 +1,3 @@
-import * as React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Box, Card, CardHeader, CardBody, CardFooter, Image } from 'grommet';
 
 export function Product(props:any) {

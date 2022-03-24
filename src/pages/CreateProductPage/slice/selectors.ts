@@ -1,5 +1,4 @@
 import { createSelector } from '@reduxjs/toolkit';
-
 import { RootState } from '../../../types/RootState';
 import { initialState } from '.';
 
@@ -31,7 +30,6 @@ export const selectBrand = createSelector(
   [selectSlice],
   CreateProductState => CreateProductState.brand,
 );
-
 
 export const selectError = createSelector(
   [selectSlice],

@@ -1,8 +1,3 @@
-/**
- *
- * LoginPage
- *
- */
 import {
   Box,
   ResponsiveContext,
@@ -27,9 +22,7 @@ import { useNavigate } from 'react-router';
 import { getToken, getUserId} from '../../utils/cookies';
 import { useAuth } from '../../utils/useAuth';
 
-interface Props {}
-
-export function LoginPage(props: Props) {
+export function LoginPage() {
   const dispatch = useDispatch();
   const { actions } = useLoginSlice();
   const isLogged: boolean = useSelector(selectIsLogged);

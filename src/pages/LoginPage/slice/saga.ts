@@ -5,8 +5,6 @@ import { selectEmail, selectPassword } from './selectors';
 import { request } from '../../../utils/request';
 import Cookies from 'universal-cookie';
 
-// function* doSomething() {}
-
 export function* loginWatcherSaga() {
   yield takeEvery(actions.fetchingData.type, loginWorkerSaga);
 }
@@ -37,7 +35,7 @@ function* loginWorkerSaga(): any {
     const cookies = new Cookies();
     cookies.set('token', token, { path: '/' });
     cookies.set('user_id', userID, {path: '/'});
-    yield put(actions.authSuccess({token, userID}));
+    yield put(actions.authSuccess());
   } catch (e) {
     yield put(actions.authError());
   }

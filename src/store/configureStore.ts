@@ -10,7 +10,6 @@ import buyerReducer from '../pages/BuyerPage/slice';
 import { buyerWatcherSaga } from '../pages/BuyerPage/slice/saga';
 import sellerReducer from '../pages/SellerPage/slice';
 import { sellerWatcherSaga } from '../pages/SellerPage/slice/saga';
-//importar reducers y sgas de las páginas
 
 export const configureAppStore = () =>{
     const sagaMiddleware = createSagaMiddleware();

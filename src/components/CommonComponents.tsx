@@ -1,7 +1,5 @@
 import { Box, TextInput, Button } from 'grommet';
 import styled from 'styled-components/macro';
-import Cookies from 'universal-cookie'; 
-import { useNavigate } from 'react-router';
 
 export const Wrapper = styled(Box)`
   background-repeat: repeat;

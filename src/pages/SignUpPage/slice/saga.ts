@@ -1,9 +1,4 @@
-import {
-  call,
-  put,
-  select,
-  takeEvery,
-} from 'redux-saga/effects';
+import { call, put, select, takeEvery } from 'redux-saga/effects';
 import { signUpActions as actions } from '.';
 import { constants } from '../../../utils/constants';
 import {

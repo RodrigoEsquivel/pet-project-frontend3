@@ -66,19 +66,6 @@ const slice = createSlice({
 
 export const { actions: signUpActions } = slice;
 export default slice.reducer;
-
 export const useSignUpSlice = () => {
   return { actions: slice.actions };
 };
-
-/**
- * Example Usage:
- *
- * export function MyComponentNeedingThisSlice() {
- *  const { actions } = useSignUpSlice();
- *
- *  const onButtonClick = (evt) => {
- *    dispatch(actions.someAction());
- *   };
- * }
- */

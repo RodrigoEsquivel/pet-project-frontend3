@@ -1,4 +1,3 @@
-/* --- STATE --- */
 export interface SignUpState {
   name: string;
   lastName: string;
