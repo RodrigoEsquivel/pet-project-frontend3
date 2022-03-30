@@ -75,6 +75,7 @@ export function SellerPage() {
                 </Box>
                 <Anchor onClick={()=> navigate('/CreateProduct')}  label="Add a product"></Anchor>
                 <Anchor onClick={()=> navigate('/Buyer')}  label="Browse products on sale"></Anchor>
+                <Anchor onClick={()=> navigate('/ModifyAccount')}  label="Modify my account"></Anchor>
               </Box>
             </>
           </Box>

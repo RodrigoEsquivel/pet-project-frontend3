@@ -3,6 +3,7 @@ import { SignUpState } from '../pages/SignUpPage/slice/types';
 import { CreateProductState } from '../pages/CreateProductPage/slice/types';
 import { BuyerPageState } from '../pages/BuyerPage/slice/types';
 import { SellerPageState } from '../pages/SellerPage/slice/types';
+import { ModifyUserState } from '../pages/ModifyUserPage/slice/types';
 
 export interface RootState {
   login?: LoginState;
@@ -10,4 +11,5 @@ export interface RootState {
   createProduct?: CreateProductState;
   buyer?: BuyerPageState;
   seller?: SellerPageState;
+  modifyUser?: ModifyUserState;
 }

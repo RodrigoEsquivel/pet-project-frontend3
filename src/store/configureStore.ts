@@ -10,6 +10,8 @@ import buyerReducer from '../pages/BuyerPage/slice';
 import { buyerWatcherSaga } from '../pages/BuyerPage/slice/saga';
 import sellerReducer from '../pages/SellerPage/slice';
 import { sellerWatcherSaga } from '../pages/SellerPage/slice/saga';
+import modifyUserReducer from '../pages/ModifyUserPage/slice';
+import { modifyUserWatcherSaga } from '../pages/ModifyUserPage/slice/saga';
 
 export const configureAppStore = () =>{
     const sagaMiddleware = createSagaMiddleware();
@@ -21,6 +23,7 @@ export const configureAppStore = () =>{
             createProduct: createProductReducer,
             buyer: buyerReducer,
             seller: sellerReducer,
+            modifyUser: modifyUserReducer
         },
         middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sagaMiddleware),
     });
@@ -30,6 +33,7 @@ export const configureAppStore = () =>{
     sagaMiddleware.run(createProductWatcherSaga);
     sagaMiddleware.run(buyerWatcherSaga);
     sagaMiddleware.run(sellerWatcherSaga);
+    sagaMiddleware.run(modifyUserWatcherSaga);
 
     return store;
 }

@@ -60,7 +60,7 @@ export function LoginPage() {
             justify="center"
             background={{ color: 'accent-3', opacity: 'medium' }}
           >
-            <>
+            <>{console.log("entre")}
               <Box justify="center" align="center" width="large" pad="large">
                 <Form>
                   <Box height="xsmall" width={size==="medium"? "medium":"small"}>
