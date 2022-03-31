@@ -62,6 +62,7 @@ export function SellerPage() {
           >
           <Box direction={size==="small"?"column":"row-responsive"} gap="medium" pad="medium" >
               {products.length!==0?products.map((product:any) => (<Product 
+              key={product['_id']}
               name={product['name']} 
               imageURI={product['imageURI']} 
               description={product['description']} 

@@ -44,9 +44,9 @@ export function LoginPage() {
       const token = getToken();
       const userID = getUserId();
       auth?.signIn({token, userID});
-      navigate('/Buyer'); //cambiar cuando se tenga a donde se redirige.
+      navigate('/Buyer');
     }
-  }, [isLogged, navigate, auth]);
+  }, [isLogged, navigate, auth, dispatch, actions]);
   return (
     <ResponsiveContext.Consumer>
       {size => (
@@ -60,7 +60,7 @@ export function LoginPage() {
             justify="center"
             background={{ color: 'accent-3', opacity: 'medium' }}
           >
-            <>{console.log("entre")}
+            <>
               <Box justify="center" align="center" width="large" pad="large">
                 <Form>
                   <Box height="xsmall" width={size==="medium"? "medium":"small"}>

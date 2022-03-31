@@ -118,13 +118,12 @@ export function ModifyUserPage() {
   }, [actions, dispatch, modifySuccess, navigate]);
 
   useEffect(() => {
-    setTimeout(() => {
-      if (deleteSuccess) {
-        auth?.signOut();
-        dispatch(actions.setDeleteSuccess(false));
-        navigate('/login');
-      }
-    }, 3000);
+    if(deleteSuccess){
+      auth?.signOut();
+      dispatch(actions.setDeleteSuccess(false));
+      setTimeout(() => {navigate('/login');}, 3000);
+    }
+    
   }, [deleteSuccess, navigate, auth, dispatch, actions]);
 
   return (
@@ -248,12 +247,12 @@ export function ModifyUserPage() {
                       }
                       primary
                     />
-                    {/*<StyledButton
+                    <StyledButton
                       label="Delete Account"
                       size={'medium'}
                       color="#FF0000"
                       onClick={() => {dispatch(actions.isDeleting());}}
-                    />    */}         
+                    />           
                   </Box>
                   <Box margin="none" gap="none" pad="none" align="center">
                       {modifyError && (

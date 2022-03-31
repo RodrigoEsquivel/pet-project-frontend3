@@ -25,7 +25,6 @@ function* buyerWorkerSaga():any {
       yield put(actions.loadProductsSuccess());
     }
   } catch (error) {
-    console.log(error);
     yield put(actions.loadProductsError());
   }
 }

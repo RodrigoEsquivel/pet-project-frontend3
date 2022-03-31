@@ -20,6 +20,9 @@ const slice = createSlice({
     setPassword(state: LoginState, action: PayloadAction<any>) {
       state.password = action.payload;
     },
+    setIsLogged(state: LoginState, action: PayloadAction<any>) {
+      state.isLogged = action.payload;
+    },
     authSuccess(state: LoginState) {
       state.isLogged = true;
       state.isFetching = false;

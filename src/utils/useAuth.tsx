@@ -1,6 +1,9 @@
 import { useState, useContext, createContext, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
+import { useLoginSlice } from "../pages/LoginPage/slice";
 import { getToken, getUserId } from "./cookies";
+
 
 export interface AuthUser {
   token: string;
@@ -25,6 +28,8 @@ export function useAuth() {
 }
 
 function useProviderAuth():ProviderAuthType{
+  const dispatch = useDispatch();
+  const { actions } = useLoginSlice();
   const [user, setUser] = useState<null | AuthUser>(null);
 
   const signIn = (newUser: AuthUser) => {
@@ -35,6 +40,7 @@ function useProviderAuth():ProviderAuthType{
     const cookies = new Cookies();
     cookies.remove('token');
     cookies.remove('user_id');
+    dispatch(actions.setIsLogged(false));
     return setUser(null);
   }
 
