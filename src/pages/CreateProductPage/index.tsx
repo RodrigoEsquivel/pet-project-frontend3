@@ -78,7 +78,7 @@ export function CreateProductPage() {
       {size => (
         <Wrapper overflow="auto">
           <Header
-            background={{ color: 'accent-3', opacity: 'medium' }}
+            background={{ color: '#f7f1e3', opacity: 'medium' }}
             align="center"
             justify="center"
           >
@@ -92,7 +92,7 @@ export function CreateProductPage() {
             >
               <Image src={logo}></Image>
             </Box>
-            <StyledButton size="small" href="/login" onClick={LogOutOnClick} color="#5D8BF4" secondary label="Log Out"/>       
+            <StyledButton size="small" href="/login" onClick={LogOutOnClick} color="#d1ccc0"  secondary label="Log Out"/>       
           </Header>
           <Box
             responsive={true}
@@ -101,7 +101,7 @@ export function CreateProductPage() {
             pad="xlarge"
             gap="medium"
             justify="center"
-            background={{ color: 'accent-3', opacity: 'medium' }}
+            background={{ color: '#f7f1e3', opacity: 'medium' }}
           >
             <>
               <Box justify="center" align="center" width="xlarge" pad="xsmall">
@@ -157,7 +157,7 @@ export function CreateProductPage() {
                       type="submit"
                       label="Upload product"
                       size={'medium'}
-                      color="#5D8BF4"
+                      color="#aaa69d"
                       disabled={
                         !(
                           description &&
@@ -192,7 +192,7 @@ export function CreateProductPage() {
                     </Box>
                   </Box>
                 </Form>
-                <Anchor onClick={()=> navigate('/Seller')} label="Back to my products"></Anchor>
+                <Anchor onClick={()=> navigate('/Seller')} color="#84817a" label="Back to my products"></Anchor>
               </Box>
             </>
           </Box>

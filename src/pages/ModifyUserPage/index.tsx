@@ -131,7 +131,7 @@ export function ModifyUserPage() {
       {size => (
         <Wrapper overflow="auto" >
           <Header
-            background={{ color: 'accent-3', opacity: 'medium' }}
+            background={{ color: '#f7f1e3', opacity: 'medium' }}
             align="center"
             justify="center"
             onLoad={()=>dispatch(actions.isLoading())}
@@ -146,9 +146,10 @@ export function ModifyUserPage() {
             >
               <Image src={logo}></Image>
             </Box>
-            <StyledButton href="/login" color="#5D8BF4" secondary label="Log Out" onClick={LogOutOnClick}/>
+            <StyledButton href="/login" color="#d1ccc0" secondary label="Log Out" onClick={LogOutOnClick}/>
           </Header>
           <Box
+            background={{ color: '#f7f1e3', opacity: 'medium' }}
             responsive={true}
             fill
             align="center"
@@ -156,7 +157,6 @@ export function ModifyUserPage() {
             gap="medium"
             justify="center"
             overflow="hidden"
-            background={{ color: 'accent-3', opacity: 'medium' }}
           >
             <>
               <Box justify="center" align="center" width="xlarge" pad="xsmall">
@@ -233,7 +233,7 @@ export function ModifyUserPage() {
                       type="submit"
                       label="Modify Account"
                       size={'medium'}
-                      color="#5D8BF4"
+                      color="#aaa69d"
                       disabled={
                         !(
                           email &&
@@ -250,7 +250,7 @@ export function ModifyUserPage() {
                     <StyledButton
                       label="Delete Account"
                       size={'medium'}
-                      color="#FF0000"
+                      color="#FF4040"
                       onClick={() => {dispatch(actions.isDeleting());}}
                     />           
                   </Box>
@@ -280,20 +280,20 @@ export function ModifyUserPage() {
                         newPassword === newPasswordConfirmation
                       ) && <StyledH3>Data is not complete</StyledH3>}
                       {modifySuccess && (
-                        <Text weight="bold" color="#7de83f">
+                        <Text weight="bold" color="#00C781">
                           Account modified, you'll be redirected to the products
                           page
                         </Text>
                       )}
                       {deleteSuccess && (
-                        <Text weight="bold" color="#7de83f">
+                        <Text weight="bold" color="#00C781">
                           Account deleted, you'll be redirected to the login
                           page
                         </Text>
                       )}
                     </Box>
                 </Form>
-                <Anchor onClick={()=> navigate('/Seller')} label="Back to my products"></Anchor>
+                <Anchor onClick={()=> navigate('/Seller')} color="#84817a" label="Back to my products"></Anchor>
               </Box>
             </>
           </Box>

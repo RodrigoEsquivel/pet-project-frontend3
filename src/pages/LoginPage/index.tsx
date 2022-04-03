@@ -58,7 +58,7 @@ export function LoginPage() {
             pad="xlarge"
             gap="medium"
             justify="center"
-            background={{ color: 'accent-3', opacity: 'medium' }}
+            background={{ color: '#f7f1e3', opacity: 'medium' }}
           >
             <>
               <Box justify="center" align="center" width="large" pad="large">
@@ -89,14 +89,14 @@ export function LoginPage() {
                     <Text>
                       Don't have an account?
                     </Text>
-                    <Anchor onClick={()=> navigate('/SignUp')} label=" Sign Up" size={''} />
+                    <Anchor onClick={()=> navigate('/SignUp')} label=" Sign Up" size={''} color="#84817a"/>
                     <Box height={''} width={''}>
                       <StyledButton
                         onClick={onSubmit}
                         type="submit"
                         label="Login"
                         size={'medium'}
-                        color="#5D8BF4"
+                        color="#aaa69d"
                         primary
                       />
                     </Box>

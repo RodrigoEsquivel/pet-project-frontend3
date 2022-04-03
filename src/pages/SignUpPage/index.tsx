@@ -100,7 +100,7 @@ export function SignUpPage() {
       {size => (
         <Wrapper overflow="auto" >
           <Header
-            background={{ color: 'accent-3', opacity: 'medium' }}
+            background={{ color: '#f7f1e3', opacity: 'medium' }}
             align="center"
             justify="center"
           >
@@ -122,8 +122,8 @@ export function SignUpPage() {
             pad="xlarge"
             gap="medium"
             justify="center"
-            overflow="hidden"
-            background={{ color: 'accent-3', opacity: 'medium' }}
+            overflow="auto"
+            background={{ color: '#f7f1e3', opacity: 'medium' }}
           >
             <>
               <Box justify="center" align="center" width="xlarge" pad="xsmall">
@@ -191,7 +191,7 @@ export function SignUpPage() {
                       type="submit"
                       label="Sign Up"
                       size={'medium'}
-                      color="#5D8BF4"
+                      color="#aaa69d"
                       disabled={
                         !(
                           email &&
@@ -229,7 +229,7 @@ export function SignUpPage() {
                     </Box>
                     <Box>
                       {signUpSuccess && (
-                        <Text weight="bold" color="#7de83f">
+                        <Text weight="bold" color="#00C781">
                           Account created, you'll be redirected to the login
                           page
                         </Text>
@@ -237,7 +237,7 @@ export function SignUpPage() {
                     </Box>
                   </Box>
                 </Form>
-                <Anchor onClick={()=> navigate('/login')} label="Back to login"></Anchor>
+                <Anchor onClick={()=> navigate('/login')} label="Back to login" color="#84817a"></Anchor>
               </Box>
             </>
           </Box>

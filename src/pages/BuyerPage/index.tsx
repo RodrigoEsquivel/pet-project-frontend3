@@ -36,9 +36,9 @@ export function BuyerPage() {
   return (
     <ResponsiveContext.Consumer>
       {size => (
-        <Wrapper overflow="auto" background={{ color: 'accent-3', opacity: 'medium' }}>
+        <Wrapper overflow="auto">
           <Header
-            background={{ color: 'accent-3', opacity: 'medium' }}
+            background={{ color: '#f7f1e3', opacity: 'medium' }}
             align="center"
             justify="center"
             onLoad={()=>dispatch(actions.fetchingData())}
@@ -53,7 +53,7 @@ export function BuyerPage() {
             >
               <Image src={logo}></Image>
             </Box>
-            <StyledButton href="/login" color="#5D8BF4" secondary label="Log Out" onClick={LogOutOnClick}/>
+            <StyledButton href="/login" color="#d1ccc0" label="Log Out" onClick={LogOutOnClick}/>
           </Header>
           <Box
             responsive={true}
@@ -62,6 +62,7 @@ export function BuyerPage() {
             pad="xlarge"
             gap="large"
             justify="evenly"
+            background={{ color: '#f7f1e3', opacity: 'medium' }}
           >
           <Box direction={size==="small"?"column":"row-responsive"} gap="medium" pad="medium" >
               {products.map((product:any) => (<Product 
@@ -77,9 +78,9 @@ export function BuyerPage() {
                 <Box align="end" gap="none" margin="medium" pad="none">
                     {error && <StyledH3>Error while loading products</StyledH3>}
                 </Box>
-                <Anchor label="Add a product" onClick={()=> navigate('/CreateProduct')}></Anchor>
-                <Anchor label="Browse your products" onClick={()=> navigate('/Seller')}></Anchor>
-                <Anchor onClick={()=> navigate('/ModifyAccount')}  label="Modify my account"></Anchor>
+                <Anchor label="Add a product" onClick={()=> navigate('/CreateProduct')} color="#84817a"></Anchor>
+                <Anchor label="Browse your products" onClick={()=> navigate('/Seller')} color="#84817a"></Anchor>
+                <Anchor onClick={()=> navigate('/ModifyAccount')}  label="Modify my account" color="#84817a"></Anchor>
               </Box>
             </>
           </Box>
