@@ -13,7 +13,14 @@ const store= configureAppStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Grommet>
+    <Grommet theme={{
+          radioButton: {
+            check: {
+              extend: "background-color: #f7f1e3"
+            },
+            color: "#84817a",
+          }
+        }}>
       <HelmetProvider>
         <React.StrictMode>
           <ProviderAuth>

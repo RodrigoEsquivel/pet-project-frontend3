@@ -7,6 +7,7 @@ import {
   Image,
   Text,
 } from 'grommet';
+import * as queryString from 'query-string';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -38,6 +39,16 @@ export function LoginPage() {
   const onSubmit = () => {
     dispatch(actions.fetchingData());
   };
+  const stringifiedParams = queryString.stringify({
+    client_id: process.env.REACT_APP_FB_ID,
+    redirect_uri: 'http://localhost:3000/FacebookLogin',
+    scope: ['email', 'public_profile'].join(','),
+    response_type: 'code',
+    auth_type: 'rerequest',
+    display: 'popup',
+  });
+
+  const facebookLoginUrl = `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParams}`;
 
   useEffect(() => {
     if (isLogged) {
@@ -90,6 +101,7 @@ export function LoginPage() {
                       Don't have an account?
                     </Text>
                     <Anchor onClick={()=> navigate('/SignUp')} label=" Sign Up" size={''} color="#84817a"/>
+                    <Anchor href={facebookLoginUrl} label=" Login with facebook" size={''} color="#84817a"/>
                     <Box height={''} width={''}>
                       <StyledButton
                         onClick={onSubmit}
